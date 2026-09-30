@@ -6,11 +6,29 @@ import './App.css'
 import Employee from './Components/Employee'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+  const [role, setRole] = useState("GIS Analyst");
+  console.log('we are about to list the employees');
+  const showEmployees = true;
   return (
     <>
       <section id="center">
+        <div className="App">
+          {console.log('insidethereturn')}
+        {showEmployees?(
+        <>
+        <input type='text'onChange={(e)=>{
+        console.log(e.target.value);
+        setRole(e.target.value);
+        }}/>
+        <Employee name="Diana"role="Engineer"experience="5years"/>
+        <Employee name="John"role={role}/>
+        <Employee name="Aemi"/>
+        </>
+        ) : (
+        <p>You cannot see the Employees</p>
+        )}
+        </div>
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
